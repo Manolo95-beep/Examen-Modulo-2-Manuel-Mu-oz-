@@ -18,6 +18,7 @@ main{
     grid-area: main;
     background: white;
     padding: 0.5rem;
+    align-content: center;
 
 }
 
@@ -34,7 +35,7 @@ ul{
     flex-direction: column;
     align-items: center;
     font-size: x-large;
-    padding: 1.3rem;
+    padding: 0.5rem;
 }
 
 a{
@@ -50,7 +51,23 @@ a:hover{
 img{
     width: 250px;
     height: 300px;
+    transition: all 1s;
+
 }
+
+img:hover{
+    cursor: pointer;
+    width: 350px;
+    height: 400px;
+}
+
+
+ul img{
+    width: 200px;
+    height: 200px;
+    animation: rotationlogo 4s ease-in infinite;
+}
+
 
 button{
     width: 80%;
@@ -62,6 +79,7 @@ button{
 
 button:hover{
     cursor: pointer;
+    animation: buttonmove 1s ease-in infinite;
 }
 
 .card{
@@ -85,20 +103,68 @@ button:hover{
         "navbar"
         "main"
         "footer";
-    grid-template-rows: 20% 1fr 10%;
+    grid-template-rows: 45% 1fr 10%;
     height: 100vh;
 }
 
-@media(min-width:576px){
+
+
+@media(min-width:912px){
 
     .grid-container{
     display: grid;
     grid-template-areas: 
-        "navbar main"
-        "navbar footer";
+        "navbar"
+        "main"
+        "footer";
     
-    grid-template-columns: 20% 80%;
-    grid-template-rows: 90% 10%;
+    grid-template-columns:auto;
+    grid-template-rows: 25% 1fr 10%;
     height: 100vh;
+
 }
+    ul{
+    display: flex;
+    flex-direction: row;
+    font-size: x-large;
+    padding: 1rem;
+    gap:0.8rem
 }
+
+    .grid-cards{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    
+}
+
+}
+
+@keyframes rotationlogo {
+    0%
+    {
+        transform: rotate(-10deg);
+    }
+    50%
+    {
+        transform: rotate(10deg);
+    }
+    100%
+    {
+        transform: rotate(-10deg);
+    }
+    }
+
+    @keyframes buttonmove {
+    0%
+    {
+        transform:translateX(-5px)
+    }
+    50%
+    {
+        transform: translateX(5px);
+    }
+    100%
+    {
+        transform: translateX(-5px);
+    }
+    }
